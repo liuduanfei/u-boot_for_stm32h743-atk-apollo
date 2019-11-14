@@ -59,7 +59,7 @@
 	};
 
 	aliases {
-		serial0 = &usart2;
+		serial0 = &usart1;
 		mmc0 = &sdmmc1;
 		gpio0 = &gpioa;
 		gpio1 = &gpiob;
@@ -75,8 +75,8 @@
 	};
 };
 
-&usart2 {
-	pinctrl-0 = <&usart2_pins>;
+&usart1 {
+	pinctrl-0 = <&usart1_pins>;
 	pinctrl-names = "default";
 	status = "okay";
 };

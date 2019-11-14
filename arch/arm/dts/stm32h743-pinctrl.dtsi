@@ -152,13 +152,13 @@
 
 			usart1_pins: usart1@0 {
 				pins1 {
-					pinmux = <STM32H7_PB14_FUNC_USART1_TX>;
+					pinmux = <STM32H7_PA9_FUNC_USART1_TX>;
 					bias-disable;
 					drive-push-pull;
 					slew-rate = <0>;
 				};
 				pins2 {
-					pinmux = <STM32H7_PB15_FUNC_USART1_RX>;
+					pinmux = <STM32H7_PA10_FUNC_USART1_RX>;
 					bias-disable;
 				};
 			};
