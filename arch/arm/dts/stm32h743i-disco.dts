@@ -105,5 +105,5 @@
 	pinctrl-0 = <&sdmmc1_pins>;
 	pinctrl-names = "default";
 	bus-width = <4>;
-	cd-gpios = <&gpioi 8 1>;
+	/*cd-gpios = <&gpioi 8 1>;*/
 };
