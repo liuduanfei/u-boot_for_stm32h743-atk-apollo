@@ -326,12 +326,12 @@ struct pll_psc {
 
 /*
  * OSC_HSE = 25 MHz
- * VCO = 500MHz
+ * VCO = 800MHz
  * pll1_p = 250MHz / pll1_q = 250MHz pll1_r = 250Mhz
  */
 struct pll_psc sys_pll_psc = {
-	.divm = 4,
-	.divn = 80,
+	.divm = 5,
+	.divn = 160,
 	.divp = 2,
 	.divq = 2,
 	.divr = 2,
@@ -409,7 +409,7 @@ int configure_clocks(struct udevice *dev)
 	/* pll setup, enable it */
 	setbits_le32(&regs->cr, RCC_CR_PLL1ON);
 
-	/* set HPRE (/2) DI clk --> 125MHz */
+	/* set HPRE (/2) DI clk --> 200MHz */
 	clrsetbits_le32(&regs->d1cfgr, RCC_D1CFGR_HPRE_MASK,
 			RCC_D1CFGR_HPRE_DIV2);
 
@@ -420,7 +420,7 @@ int configure_clocks(struct udevice *dev)
 
 	/* sdram: use pll1_q as fmc_k clk */
 	clrsetbits_le32(&regs->d1ccipr, RCC_D1CCIPR_FMCSRC_MASK,
-			FMCSRC_PLL1_Q_CK);
+			FMCSRC_HCLKD1);
 
 	return 0;
 }
