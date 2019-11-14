@@ -34,6 +34,7 @@
 #define TXSR_1		(1 - 1)
 #define TXSR_6		(6 - 1)
 #define TXSR_7		(7 - 1)
+#define TXSR_8		(8 - 1)
 #define TRAS_1		(1 - 1)
 #define TRAS_4		(4 - 1)
 #define TRAS_6		(6 - 1)
