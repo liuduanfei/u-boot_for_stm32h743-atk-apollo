@@ -70,6 +70,13 @@ static int device_bind_common(struct udevice *parent, const struct driver *drv,
 
 	dev->seq = -1;
 	dev->req_seq = -1;
+
+	printf("-----------------\n");
+	printf("device name = %s\n", name);
+	printf("device node offset = %ld\n", node.of_offset);
+	printf("-----------------\n");
+
+
 	if (CONFIG_IS_ENABLED(DM_SEQ_ALIAS) &&
 	    (uc->uc_drv->flags & DM_UC_FLAG_SEQ_ALIAS)) {
 		/*
@@ -322,6 +329,10 @@ int device_probe(struct udevice *dev)
 	drv = dev->driver;
 	assert(drv);
 
+	printf("--------------\n");
+
+	printf("probe dev_name=%s\n", dev->name);
+	printf("--------------\n");
 	/* Allocate private data if requested and not reentered */
 	if (drv->priv_auto_alloc_size && !dev->priv) {
 		dev->priv = alloc_priv(drv->priv_auto_alloc_size, drv->flags);

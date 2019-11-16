@@ -129,7 +129,6 @@ int _log(enum log_category_t cat, enum log_level_t level, const char *file,
 #define log(_cat, _level, _fmt, _args...)
 #endif
 
-#define DEBUG
 #ifdef DEBUG
 #define _DEBUG	1
 #else
