@@ -525,6 +525,8 @@ static int stm32_sdmmc2_set_ios(struct udevice *dev)
 	debug("%s: bus_with = %d, clock = %d\n", __func__,
 	      mmc->bus_width, mmc->clock);
 
+	printf("%s: bus_with = %d, clock = %d, sys_clock = %d\n", __func__,
+	      mmc->bus_width, mmc->clock, sys_clock);
 	if (mmc->clk_disable)
 		stm32_sdmmc2_pwrcycle(priv);
 	else

@@ -333,7 +333,7 @@ struct pll_psc sys_pll_psc = {
 	.divm = 5,
 	.divn = 160,
 	.divp = 2,
-	.divq = 2,
+	.divq = 4,
 	.divr = 2,
 };
 
@@ -413,6 +413,10 @@ int configure_clocks(struct udevice *dev)
 	clrsetbits_le32(&regs->d1cfgr, RCC_D1CFGR_HPRE_MASK,
 			RCC_D1CFGR_HPRE_DIV2);
 
+	clrsetbits_le32(&regs->d2cfgr, 7<<8,
+			4<<8);
+	clrsetbits_le32(&regs->d2cfgr, 7<<4,
+			4<<4);
 	/*  select PLL1 as system clock source (sys_ck)*/
 	clrsetbits_le32(&regs->cfgr, RCC_CFGR_SW_MASK, RCC_CFGR_SW_PLL1);
 	while ((readl(&regs->cfgr) & RCC_CFGR_SW_MASK) != RCC_CFGR_SW_PLL1)

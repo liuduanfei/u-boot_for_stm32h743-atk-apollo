@@ -21,7 +21,7 @@ static void _stm32_serial_setbrg(fdt_addr_t base,
 {
 	bool stm32f4 = uart_info->stm32f4;
 	u32 int_div, mantissa, fraction, oversampling;
-
+	
 	int_div = DIV_ROUND_CLOSEST(clock_rate, baudrate);
 
 	if (int_div < 16) {
